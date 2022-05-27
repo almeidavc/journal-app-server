@@ -7,7 +7,7 @@ CREATE TABLE prompts (
 
 CREATE TABLE drafts (
     id SERIAL PRIMARY KEY,
-    date_created TIMESTAMP,
+    datetime_created TIMESTAMP,
     title VARCHAR(255),
     prompt_used INTEGER REFERENCES prompts (id),
     body TEXT 
