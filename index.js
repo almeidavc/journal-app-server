@@ -19,6 +19,19 @@ app.get("/prompts", async (req, res) => {
   }
 });
 
+// get prompt with id
+app.get("/prompts/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const prompt = await pool.query("SELECT * FROM prompts WHERE id = $1", [
+      id,
+    ]);
+    res.json(prompt.rows[0]);
+  } catch (err) {
+    console.log(err);
+  }
+});
+
 // create prompt
 app.post("/prompts", async (req, res) => {
   try {
