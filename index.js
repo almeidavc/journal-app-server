@@ -72,6 +72,29 @@ app.get("/drafts", async (req, res) => {
   }
 });
 
+// get drafts metadata without the body
+app.get("/drafts-md", async (req, res) => {
+  try {
+    const draftsMD = await pool.query(
+      "SELECT id, datetime_created, title, prompt_used FROM drafts"
+    );
+    res.json(draftsMD.rows);
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+// get draft with id
+app.get("/drafts/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const draft = await pool.query("SELECT * FROM drafts WHERE id = $1", [id]);
+    res.json(draft.rows[0]);
+  } catch (err) {
+    console.log(err);
+  }
+});
+
 // create draft
 app.post("/drafts", async (req, res) => {
   try {
