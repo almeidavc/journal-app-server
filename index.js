@@ -69,9 +69,10 @@ app.delete("/prompts/:id", async (req, res) => {
       "DELETE FROM prompts WHERE id = $1 RETURNING *",
       [id]
     );
-    res.json(response.rows[0]);
+    res.json({ success: true, deleted: response.rows[0] });
   } catch (err) {
     console.log(err);
+    res.json({ success: false, error: err.detail });
   }
 });
 
