@@ -2,7 +2,7 @@
 
 Journaling tool to save your notes/prompts and manage them separately.
 
-[Client Repo](github.com/almeidavc/journal-app-client)
+[Client Repo](https://github.com/almeidavc/journal-app-client)
 
 <!-- Overview + Technologies used -->
 
