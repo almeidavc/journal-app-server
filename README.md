@@ -12,7 +12,7 @@ Backend for the journaling app. Implemented an API to get, create, update and de
 
 - Node.js as the runtime environment
 - Express to build the REST API
-- PostgreSQL for the relational database
+- PostgreSQL as the relational database
 
 <!-- Backend Architecture + API Endpoints -->
 
